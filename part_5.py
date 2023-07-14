@@ -52,11 +52,12 @@ def return_dictionary_list(library):
 
         for line in file:
 
-            title, author, year, rating, pages = line.split(", ")
+            title, author, genre, year, rating, pages = line.split(", ")
 
             new_list.append ({
                 "title": title,
                 "author": author,
+                "genre": genre,
                 "year": int(year),
                 "rating": float(rating),
                 "pages": int(pages)
@@ -87,25 +88,25 @@ def new_book(library):
     with open(library, "a") as f:
         f.write(f"{title}, {author}, {year}, {rating}, {pages}\n")
 
-# def find_by_genre(library, genre):
-#     for book in library:
-#         if book['genre'] == genre:
-#             print(f"{book['title']}")
+def find_by_genre(library, genre):
+    for book in return_dictionary_list(library):
+        if book['genre'] == genre:
+            print(f"{book['title']}")
 
 def find_by_title(library, title):
     for book in return_dictionary_list(library):
         if book['title'] == title:
             print(f"{book}")
 
-# def find_by_author(library, author):
-#     for book in library:
-#         if book['author'] == author:
-#             print(f"{book['title']}")
+def find_by_author(library, author):
+    for book in return_dictionary_list(library):
+        if book['author'] == author:
+            print(f"{book['title']}")
 
-# def find_by_minRating(library, rating):
-    # for book in library:
-    #     if book['rating'] >= rating:
-    #         print(f"{book['title']}")
+def find_by_minRating(library, rating):
+    for book in return_dictionary_list(library):
+        if book['rating'] >= rating:
+            print(f"{book['title']}")
 
 def menu(library):
 
@@ -119,35 +120,41 @@ def menu(library):
             Type 2 to browse by title.
             Type 3 to browse by author.
             Type 4 to browse by genre.
-            Type 3 to browse by a minimum rating.
-            Type 5 to donate a book.
-            Type 6 to exit.
+            Type 5 to browse by a minimum rating.
+            Type 6 to donate a book.
+            Type 7 to exit.
                        
                        """)
         
 
         if option == "1":
-            print('Please enjoy our selection.')
+            print('Please enjoy our selection.\n')
             pprint(return_dictionary_list(library))
 
         elif option == "2":
-            book_title = input("What is the title of the book you're looking for?")
-            print("Is this what you're looking for?")
+            book_title = input("What is the title of the book you're looking for? ")
+            print("\nIs this what you're looking for?\n")
             find_by_title(library, book_title)
 
-        # elif option == "3":
-        #     print("Here is our catalogue from that author.")
-        #     find_by_author(library)
+        elif option == "3":
+            book_author = input("What is the name of the author you're looking for? ")
+            print("\nHere is our catalogue from that author.\n")
+            find_by_author(library, book_author)
 
-        # elif option == "4":
-        #     print('Here is our catalogue for that genre.')
-        #     find_by_genre(library)
+        elif option == "4":
+            book_genre = input("What is the genre of the books you're looking for? ")
+            print('\nHere is our catalogue for that genre.\n')
+            find_by_genre(library, book_genre)
 
         elif option == "5":
+            book_min_rating = input("What is the minimum rating you'd like to sort by? ")
+            
+
+        elif option == "6":
             new_book(library)
             print("Thank you for your donation!")
 
-        elif option == "6":
+        elif option == "7":
                 return
         else:
             print("Please select an option.")
