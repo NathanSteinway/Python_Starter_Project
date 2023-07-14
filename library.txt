@@ -2,3 +2,4 @@ Pride and Prejudice, Jane Austen, Romance, 1813, 5.0, 448
 To Kill a Mockingbird, Harper Lee, Fiction, 1960, 5.0, 281
 The Odyssey, Homer, Epic, 1610, 5.0, 541
 Sir Gawain and the Green Knight, Gawain Poet, Romance, 1839, 5.0, 192
+Bad Book, Bad Author, Bad Genre, 2023, 1.0, 9001

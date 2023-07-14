@@ -69,6 +69,7 @@ def new_book(library):
 
     title = input("What is the title of the book you would like to add? - ")
     author = input("Who is the author of the book you would like to add? - ")
+    genre = input("What is the genre of the book you would like to add? - ")
 
     try:
         year = int(input("What year was this book published? - "))
@@ -86,7 +87,7 @@ def new_book(library):
         pages = int(input("Please type an integer for the page count. - "))
 
     with open(library, "a") as f:
-        f.write(f"{title}, {author}, {year}, {rating}, {pages}\n")
+        f.write(f"{title}, {author}, {genre}, {year}, {rating}, {pages}\n")
 
 def find_by_genre(library, genre):
     for book in return_dictionary_list(library):
@@ -147,7 +148,7 @@ def menu(library):
             find_by_genre(library, book_genre)
 
         elif option == "5":
-            
+
             try:
                 book_min_rating = float(input("What is the minimum rating you'd like to sort by? "))
                 print('\nHere is our catalogue based on the given criteria.\n')
