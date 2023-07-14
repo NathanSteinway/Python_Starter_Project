@@ -95,12 +95,22 @@ def library_reader(library):
     for book in return_dictionary_list(library):
         print(book)
 
-def find_by_genre(library, genre):
-    for book in library:
-        if book['genre'] == genre:
-            print(f"{book['title']}")
+# def find_by_genre(library, genre):
+#     for book in library:
+#         if book['genre'] == genre:
+#             print(f"{book['title']}")
 
-def find_by_minRating(library, rating):
+def find_by_title(library, title):
+    for book in return_dictionary_list(library):
+        if book['title'] == title:
+            print(f"{book}")
+
+# def find_by_author(library, author):
+#     for book in library:
+#         if book['author'] == author:
+#             print(f"{book['title']}")
+
+# def find_by_minRating(library, rating):
     for book in library:
         if book['rating'] >= rating:
             print(f"{book['title']}")
@@ -114,8 +124,12 @@ def menu(library):
         
             Welcome!
             Type 1 to browse our shelves.
-            Type 2 to donate a book.
-            Type 3 to exit.
+            Type 2 to browse by title.
+            Type 3 to browse by author.
+            Type 4 to browse by genre.
+            Type 3 to browse by a minimum rating.
+            Type 5 to donate a book.
+            Type 6 to exit.
                        
                        """)
         
@@ -125,10 +139,23 @@ def menu(library):
             pprint(return_dictionary_list(library))
 
         elif option == "2":
+            book_title = input("What is the title of the book you're looking for?")
+            print("Is this what you're looking for?")
+            find_by_title(library + book_title)
+
+        # elif option == "3":
+        #     print("Here is our catalogue from that author.")
+        #     find_by_author(library)
+
+        # elif option == "4":
+        #     print('Here is our catalogue for that genre.')
+        #     find_by_genre(library)
+
+        elif option == "5":
             new_book(library)
             print("Thank you for your donation!")
 
-        elif option == "3":
+        elif option == "6":
                 return
         else:
             print("Please select an option.")
