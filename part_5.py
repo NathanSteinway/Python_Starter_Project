@@ -147,8 +147,13 @@ def menu(library):
             find_by_genre(library, book_genre)
 
         elif option == "5":
-            book_min_rating = input("What is the minimum rating you'd like to sort by? ")
             
+            try:
+                book_min_rating = float(input("What is the minimum rating you'd like to sort by? "))
+                print('\nHere is our catalogue based on the given criteria.\n')
+                find_by_minRating(library, book_min_rating)
+            except:
+                print("Please enter a float value.")
 
         elif option == "6":
             new_book(library)
