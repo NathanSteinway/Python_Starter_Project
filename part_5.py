@@ -87,14 +87,6 @@ def new_book(library):
     with open(library, "a") as f:
         f.write(f"{title}, {author}, {year}, {rating}, {pages}\n")
 
-
-    for book in return_dictionary_list(library):
-        pprint(book)
-
-def library_reader(library):
-    for book in return_dictionary_list(library):
-        print(book)
-
 # def find_by_genre(library, genre):
 #     for book in library:
 #         if book['genre'] == genre:
@@ -111,9 +103,9 @@ def find_by_title(library, title):
 #             print(f"{book['title']}")
 
 # def find_by_minRating(library, rating):
-    for book in library:
-        if book['rating'] >= rating:
-            print(f"{book['title']}")
+    # for book in library:
+    #     if book['rating'] >= rating:
+    #         print(f"{book['title']}")
 
 def menu(library):
 
@@ -141,7 +133,7 @@ def menu(library):
         elif option == "2":
             book_title = input("What is the title of the book you're looking for?")
             print("Is this what you're looking for?")
-            find_by_title(library + book_title)
+            find_by_title(library, book_title)
 
         # elif option == "3":
         #     print("Here is our catalogue from that author.")
